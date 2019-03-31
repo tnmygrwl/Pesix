@@ -123,9 +123,54 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript">
-				var emissions = (units) => {
+
+				var calcEmissions = (units) => {
 					return units * 1.004
 				};
+
+				var payee;
+				var date;
+				var payment_amount;
+				var id = '5c9fa4e6322fa06b677949e2'
+
+				//GET data
+				var dataFromCapitalOne = {
+				  "async": true,
+				  "crossDomain": true,
+				  "url": "http://api.reimaginebanking.com/accounts?key=1ec0d7166feb6612d0618480de29012f",
+				  "method": "GET",
+				  "headers": {
+				    "Content-Type": "application/json",
+				    "cache-control": "no-cache",
+				    "Postman-Token": "c09cf7ee-0bdc-4714-8abd-e5ce5a18a182"
+				  },
+				  "processData": false,
+				  "data": ""
+				}
+
+				$.ajax(dataFromCapitalOne).done(function (response) {
+				  console.log(response);
+				});
+
+				// POST data to 
+				var dataToCapitalOne = {
+	  			"async": true,
+				"crossDomain": true,
+				"url": "http://api.reimaginebanking.com/accounts/5c9fa4e8322fa06b677949e5/bills?key=1ec0d7166feb6612d0618480de29012f",
+				"method": "POST",
+				"headers": {
+				"Content-Type": "application/json",
+				"cache-control": "no-cache",
+				"Postman-Token": "ebfc4e69-bd83-42e7-ae7b-64cd005e0ff9"
+				},
+				"processData": false,
+				"data": "{\n  \"status\": \"pending\",\n  \"payee\":" + payee + ",\n  \"nickname\": \"nick\",\n  \"payment_date\":" + date + ",\n  \"recurring_date\": 1,\n \"payment_amount\":"+ payment_amount + "\n}"
+				}
+
+				$.ajax(dataToCapitalOne).done(function (response) {
+	  			console.log(response);
+				});
+
 			</script>
 
 	</body>
