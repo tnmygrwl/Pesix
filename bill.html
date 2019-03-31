@@ -176,7 +176,7 @@
                     <td>
                         Current Charges
                     </td>
-                    <td>
+                    <td id="amt">
                         $300.00
                     </td>
                 </tr>
@@ -469,6 +469,7 @@ console.log(test);
     var payment_amount;
     var id = '5c9fa4e6322fa06b677949e2'
 
+
     // GET payment_amount from Alexa
     var getPaymentAmount = {
         "async": true,
@@ -483,10 +484,17 @@ console.log(test);
         }
     }
 
+    // $.ajax(getPaymentAmount).done(function (response) {
+    //     console.log(response.result.receiver);
+    //     var obj = response.result.receiver;
+    //     $("#amt").val(obj);
+    // });
+
     $.ajax(getPaymentAmount).done(function (response) {
         console.log(response.result.receiver);
         var obj = response.result.receiver;
         test.update_score("0xD91f848796e092De699C535f8eD72024Af079372",obj,(error,result) => (console.log(result)));
+        $("#amt").html(obj);
     });
 
     //GET data
