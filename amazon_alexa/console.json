@@ -1,0 +1,243 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "carbon",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Payabill",
+                    "slots": [
+                        {
+                            "name": "price",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "My bill amount is {price} dollars.",
+                                "{price} dollars."
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I will like to pay my electricity bill of {price} dollars.",
+                        "I will like to pay my gas bill.",
+                        "I will like to pay my gas bill of {price} dollars.",
+                        "I want to pay my gas bill.",
+                        "Schedule payment for my electricity bill",
+                        "Schedule my electricity bill of {price} dollars",
+                        " I want to pay my electricity bill of {price} dollars "
+                    ]
+                },
+                {
+                    "name": "CommittDate",
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{date}",
+                                "Schedule the payment for {date} "
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{date}",
+                        "Payment should be made by {date}",
+                        "Payment should be made within {date}",
+                        "Schedule my payment for {date}"
+                    ]
+                },
+                {
+                    "name": "Answer",
+                    "slots": [
+                        {
+                            "name": "ans",
+                            "type": "rightwrong",
+                            "samples": [
+                                "{ans} please",
+                                "{ans}",
+                                "{ans} I will like to know more",
+                                "I want to know more about {ans}",
+                                "Yes I will like to know more about {ans}",
+                                "Tell me more about {ans}",
+                                "I will like to know more about {ans}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Yes I will like to know more about {ans}",
+                        "{ans}",
+                        "I want to know about {ans}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "rightwrong",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Sure why not"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will like to"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Why not"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yah"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yes please"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yes, sure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yes"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "Payabill",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "price",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.958420499452.871099946934"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CommittDate",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1407509543082.406980211274"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Answer",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "ans",
+                            "type": "rightwrong",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.79338233395.596924552194"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.958420499452.871099946934",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is the bill amount?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1407509543082.406980211274",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "When shall I schedule the payment for?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.79338233395.596924552194",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want detailed analysis?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Are you interested in more information?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Would you like to know more?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.860788970559.489045298032",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Would you like to know more about your friends?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to hear more about your friends?"
+                    }
+                ]
+            }
+        ]
+    }
+}
