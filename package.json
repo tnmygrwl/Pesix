@@ -1,0 +1,26 @@
+{
+  "name": "pesix",
+  "version": "1.0.0",
+  "description": "Track your carbon footprint seamlessly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanmay7270/pesix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanmay7270/pesix/issues"
+  },
+  "homepage": "https://github.com/tanmay7270/pesix#readme",
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  },
+  "dependencies": {
+    "web3": "github:ethereum/web3.js"
+  }
+}

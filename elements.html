@@ -11,6 +11,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="./node_modules/web3/dist/web3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<style>
+p.dashed {border-style: dashed;}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 75%;
+    border-radius: 5px;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+img {
+    border-radius: 5px 5px 0 0;
+}
+.container {
+    padding: 2px 16px;
+}
+</style>
+
+<style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
 	</head>
 	<body class="is-preload">
 
@@ -43,7 +78,31 @@
 					<div id="main">
 			<!-- Post -->
 								<!-- Table -->
-									<h2>Table</h2>
+								<center>
+								<div class="card">
+<div class="container">
+    <br>
+<div id="tbox">
+    <li class="list-group-item">
+      <p>
+        <div class="row">
+          <div class="col-md-5">
+            <b>Position</b>
+          </div>
+          <div class="col-md-5">
+            <b>Address</b>
+          </div>
+          <div class="col-md-5">
+            <b>Emission Score</b>
+          </div>
+        </div>
+      </p>
+    </li>
+</div>
+<div id= "box"></div>
+<br>
+</div></div>
+									<!-- <h2>Table</h2>
 									<div class="table-wrapper">
 										<table>
 											<thead>
@@ -87,9 +146,9 @@
 												</tr>
 											</tfoot>
 										</table>
-									</div>
+									</div> -->
 
-									<h3>Alternate</h3>
+									<!-- <h3>Alternate</h3>
 									<div class="table-wrapper">
 										<table class="alt">
 											<thead>
@@ -135,7 +194,7 @@
 										</table>
 									</div>
 
-									<hr />
+									<hr /> -->
 
 								<!-- Buttons -->
 									<!-- <h2>Buttons</h2>
@@ -335,6 +394,303 @@ print 'It took ' + i + ' iterations to sort the deck.';
 			</div> -->
 
 		<!-- Scripts -->
+		<script>
+       if(typeof web3 !== 'undefined') {
+         console.log("Unlock MetaMask");
+         web3 = new Web3(web3.currentProvider);
+       }
+       else {
+         console.log("Install MetaMask");
+         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
+       }
+       web3.version.getNetwork((err, netId) => {
+  switch (netId) {
+    case "1":
+      console.log('This is mainnet')
+      break
+    case "2":
+      console.log('This is the deprecated Morden test network.')
+      break
+    case "3":
+      console.log('This is the ropsten test network.')
+      break
+    case "4":
+      console.log('This is the Rinkeby test network.')
+      break
+    case "42":
+      console.log('This is the Kovan test network.')
+      break
+    default:
+      console.log('This is an unknown network.')
+  }
+})
+
+       web3.eth.defaultAccount=web3.eth.accounts[0];
+
+       var testContract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "carbon_emm",
+				"type": "uint256"
+			}
+		],
+		"name": "add_order",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "sort_array",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "view_history",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "view_score",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "view_score_by_address",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "show_filtered_users",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "no_of_users",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "add_user",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"name": "new_score",
+				"type": "uint256"
+			}
+		],
+		"name": "update_score",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "view_history_by_address",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "find_pos",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "filtered_no_of_users",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+
+var test = testContract.at("0x1532806c8f490011bdb58d3c1b0b3e1c8e678085");
+console.log(test);
+
+
+
+/////////////
+
+
+test.show_filtered_users(function(error,result1)
+{
+	if(!error)
+	{
+		console.log(result1);
+    for (var i = 0; i <= result1.length; i++)
+    {
+      test.view_score_by_address(result1[i],function(error,result)
+		{
+			if(!error)
+			{
+				k=1;
+				console.log(result);
+				var html = "<li class=\"list-group-item\"><p><div class=\"row\">";
+				html+="<div class=\"col-md-2\">"+" "+result[0]+"</a></div>";
+        for (var j = 1; j < result.length; j++)
+            {
+        html+="<div class=\"col-md-2\">"+result[j]+"</div>";
+            }
+
+                    html+="</div></p></li>";
+
+document.getElementById("box").innerHTML += html;
+
+        }
+  else
+        {
+    console.log(error);
+        }
+
+		});
+
+	  }
+	}
+	else {
+		console.log(error);
+	}
+});
+
+
+
+
+/////////////////
+
+
+
+
+
+
+
+
+</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
