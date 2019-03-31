@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Generic Page - Massively by HTML5 UP</title>
+    <title>Receipts</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -128,7 +128,7 @@
         <!-- Main -->
         <div id="main">
             <!-- Post -->
-                    <h2>View your past receipts</h2>
+                    <h2>View your past PG&E receipts</h2>
         <center>
         <div class="invoice-box">
             <table cellpadding="0" cellspacing="0">
@@ -221,6 +221,24 @@
     var date;
     var payment_amount;
     var id = '5c9fa4e6322fa06b677949e2'
+
+    // GET payment_amount from Alexa
+    var getPaymentAmount = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://www.jsonstore.io/54298701bfa16f8c77653c87b9008c3f3a681c74ca82c59649efc9159f910e46",
+        "method": "GET",
+        "headers": {
+        "Accept": "application/json",
+        "x-macys-webservice-client-id": "h4ckathon",
+        "cache-control": "no-cache",
+        "Postman-Token": "016044df-9f52-4c7a-b00c-a5395782bff3"
+        }
+    }
+
+    $.ajax(getPaymentAmount).done(function (response) {
+        console.log(response);
+    });
 
     //GET data
     var dataFromCapitalOne = {
