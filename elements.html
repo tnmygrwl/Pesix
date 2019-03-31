@@ -85,7 +85,7 @@ tr:nth-child(even){background-color: #f2f2f2}
             <b>Position</b>
           </div>
           <div class="col-md-5">
-            <b>Address</b>
+            <b> Ethereum Address</b>
           </div>
           <div class="col-md-5">
             <b>Emission Score</b>
@@ -688,7 +688,12 @@ document.getElementById("box").innerHTML += html;
 </script>
 <br/>
 	<button type="button" class="btn btn-success" id="refresh">Refresh</button>
+  <script>
+	  $('refresh').click(function() {
+			test.sort_array((error,result) => (console.log(result)));
+		});
 
+	</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
