@@ -16,7 +16,7 @@
 				<!-- Header -->
 					
 				<center><a href="index.html"><img src="images/logo_transparent.png" alt="Smiley face" height="300" width="300"></a></center>
-					
+				<br>	
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -43,10 +43,11 @@
 									<h2>Analytics</h2>
 								    <p>View your usage patterns and reduce your carbon footprint.</p>
 						<div>
-							<h2>Distribution of your Carbon Footprint (Last 6 Months)</h2>
+							<h3>Distribution of your Carbon Footprint (Last 6 Months)</h3>
 							<canvas id="myChart"></canvas>
 						</div>
 						<div>
+							<h3>Emission Distribution</h3>
 							<canvas id="myRadarChart"></canvas>
 						</div>
 					</div>
@@ -83,6 +84,9 @@
 										beginAtZero: true
 									}
 								}]
+							},
+							legend: {
+            					display: false
 							}
 						}
 					});
@@ -91,14 +95,18 @@
 				var myRadarChart = new Chart(ctx2, {
 					type: 'doughnut',
 					data: {
-						labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+						labels: ['PG&E','Groceries','Car Fuel','Waste','Miscellaneous'],
 						datasets: [{
 							label: 'Carbon Footprint',
-							backgroundColor: ['rgb(255, 99, 132)','rgb(28, 234, 196)','rgb(54, 162, 235)','rgb(255, 208, 86)','rgb(155, 240, 132)','rgb(173, 66, 244)'],
-							data: [26, 22, 18, 20, 16, 12]
+							backgroundColor: ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 208, 86)','rgb(155, 240, 132)','rgb(173, 66, 244)'],
+							data: [36, 16, 28, 12, 19]
 						}]
 					},
-					options: {}
+					options: {
+						title: {
+						display: true
+						}
+					}
 				});
 
 				var calcEmissions = (units) => {
