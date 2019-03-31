@@ -14,9 +14,9 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Pesix</a>
-					</header>
+					
+				<center><a href="index.html"><img src="images/logo_transparent.png" alt="Smiley face" height="300" width="300"></a></center>
+					
 
 				<!-- Nav -->
 					<nav id="nav">
@@ -42,9 +42,12 @@
 							
 									<h2>Analytics</h2>
 								    <p>View your usage patterns and reduce your carbon footprint</p>
-							
+						<div>
 							<canvas id="myChart"></canvas>
-
+						</div>
+						<div>
+							<canvas id="myRadarChart"></canvas>
+						</div>
 					</div>
 
 		<!-- Scripts -->
@@ -58,29 +61,48 @@
 			<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 			<script type="text/javascript">
 				var ctx = document.getElementById('myChart').getContext('2d');
-				var chart = new Chart(ctx, {
+				var mychart = new Chart(ctx, {
 					// The type of chart we want to create
 					type: 'line',
 				
 					// The data for our dataset
 					data: {
-						labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+						labels: ['January', 'February', 'March', 'April', 'May', 'June'],
 						datasets: [{
 							label: 'Carbon Footprint',
-							backgroundColor: 'rgb(255, 99, 132)',
-							borderColor: 'rgb(255, 99, 132)',
-							data: [0, 10, 5, 2, 20, 30, 45]
+							backgroundColor: 'rgb(170, 244, 66)',
+							borderColor: 'rgb(25, 89, 40)',
+							data: [26, 22, 18, 20, 16, 12]
 						}]
 					},
-				
-					// Configuration options go here
+						options: {
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true
+									}
+								}]
+							}
+						}
+					});
+
+				var ctx2 = document.getElementById('myRadarChart').getContext('2d');
+				var myRadarChart = new Chart(ctx2, {
+					type: 'doughnut',
+					data: {
+						labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+						datasets: [{
+							label: 'Carbon Footprint',
+							backgroundColor: ['rgb(255, 99, 132)','rgb(28, 234, 196)','rgb(54, 162, 235)','rgb(255, 208, 86)','rgb(155, 240, 132)','rgb(173, 66, 244)'],
+							data: [26, 22, 18, 20, 16, 12]
+						}]
+					},
 					options: {}
 				});
 
 				var calcEmissions = (units) => {
 					return units * 1.004
 				};
-
 				var payee;
 				var date;
 				var payment_amount;
