@@ -1,174 +1,290 @@
 <!DOCTYPE HTML>
-
 <html>
-    <head>
-        <title>Generic Page - Massively by HTML5 UP</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    </head>
-    <body class="is-preload">
 
-        <!-- Wrapper -->
-            <div id="wrapper">
+<head>
+    <title>Generic Page - Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .invoice-box {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 16px;
+        line-height: 24px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        line-height: inherit;
+        text-align: left;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+    }
+    
+    .invoice-box table tr td:nth-child(2) {
+        text-align: right;
+    }
+    
+    .invoice-box table tr.top table td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.top table td.title {
+        font-size: 45px;
+        line-height: 45px;
+        color: #333;
+    }
+    
+    .invoice-box table tr.information table td {
+        padding-bottom: 40px;
+    }
+    
+    .invoice-box table tr.heading td {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+    
+    .invoice-box table tr.details td {
+        padding-bottom: 20px;
+    }
+    
+    .invoice-box table tr.item td{
+        border-bottom: 1px solid #eee;
+    }
+    
+    .invoice-box table tr.item.last td {
+        border-bottom: none;
+    }
+    
+    .invoice-box table tr.total td:nth-child(2) {
+        border-top: 2px solid #eee;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .invoice-box table tr.information table td {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+    
+    /** RTL **/
+    .rtl {
+        direction: rtl;
+        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+    
+    .rtl table {
+        text-align: right;
+    }
+    
+    .rtl table tr td:nth-child(2) {
+        text-align: left;
+    }
+    </style>
+</head>
 
-                <!-- Header -->
-                    <header id="header">
-                        <a href="index.html" class="logo">Pesix</a>
-                    </header>
-
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul class="links">
-                            <li><a href="elements.html">Leaderboard</a></li>
-                            <li><a href="generic.html">Analytics</a></li>
-                            <li class="active"><a href="bill.html">Receipts</a></li>
-                            <!--
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Pesix</a>
+        </header>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="elements.html">Leaderboard</a></li>
+                <li><a href="generic.html">Analytics</a></li>
+                <li class="active"><a href="bill.html">Receipts</a></li>
+                <!--
                             <li class="active"><a href="elements.html">Elements Reference</a></li>-->
-                        </ul>
-                        <ul class="icons">
-                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                        </ul>
-                    </nav>
+            </ul>
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+        <!-- Main -->
+        <div id="main">
+            <!-- Post -->
+            <section class="post">
+                <header class="major">
+                    <h1>View your<br />
+                        past receipts</h1>
+            </section>
+        
+        <div class="invoice-box">
+            <table cellpadding="0" cellspacing="0">
+                <tr class="top">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td class="title">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Capital_One_logo.svg/1200px-Capital_One_logo.svg.png" style="width:100%; max-width:300px;">
+                                </td>
+                                <td>
+                                    Invoice #: 123<br>
+                                    Created: January 1, 2015<br>
+                                    Due: February 1, 2015
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="information">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    Sparksuite, Inc.<br>
+                                    12345 Sunny Road<br>
+                                    Sunnyville, CA 12345
+                                </td>
+                                <td>
+                                    Acme Corp.<br>
+                                    John Doe<br>
+                                    john@example.com
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>
+                        Payment Method
+                    </td>
+                    <td>
+                        Check #
+                    </td>
+                </tr>
+                <tr class="details">
+                    <td>
+                        Check
+                    </td>
+                    <td>
+                        1000
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>
+                        Item
+                    </td>
+                    <td>
+                        Price
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Website design
+                    </td>
+                    <td>
+                        $300.00
+                    </td>
+                </tr>
+                <tr class="item">
+                    <td>
+                        Hosting (3 months)
+                    </td>
+                    <td>
+                        $75.00
+                    </td>
+                </tr>
+                <tr class="item last">
+                    <td>
+                        Domain name (1 year)
+                    </td>
+                    <td>
+                        $10.00
+                    </td>
+                </tr>
+                <tr class="total">
+                    <td></td>
+                    <td>
+                        Total: $385.00
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+    var calcEmissions = (units) => {
+        return units * 1.004
+    };
 
-                <!-- Main -->
-                    <div id="main">
+    var payee;
+    var date;
+    var payment_amount;
+    var id = '5c9fa4e6322fa06b677949e2'
 
-                        <!-- Post -->
-                            <section class="post">
-                                <header class="major">
-                                    <span class="date">April 25, 2017</span>
-                                    <h1>This is a<br />
-                                    Generic Page</h1>
-                                    <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-                                    facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-                                    amet nullam sed etiam veroeros.</p>
-                                </header>
-                                <div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-                                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
-                            </section>
+    //GET data
+    var dataFromCapitalOne = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://api.reimaginebanking.com/accounts?key=1ec0d7166feb6612d0618480de29012f",
+        "method": "GET",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "c09cf7ee-0bdc-4714-8abd-e5ce5a18a182"
+        },
+        "processData": false,
+        "data": ""
+    }
 
-                    </div>
+    $.ajax(dataFromCapitalOne).done(function(response) {
+        console.log(response);
+    });
 
-                <!-- Footer -->
-                    <footer id="footer">
-                        <section>
-                            <form method="post" action="#">
-                                <div class="fields">
-                                    <div class="field">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" />
-                                    </div>
-                                    <div class="field">
-                                        <label for="email">Email</label>
-                                        <input type="text" name="email" id="email" />
-                                    </div>
-                                    <div class="field">
-                                        <label for="message">Message</label>
-                                        <textarea name="message" id="message" rows="3"></textarea>
-                                    </div>
-                                </div>
-                                <ul class="actions">
-                                    <li><input type="submit" value="Send Message" /></li>
-                                </ul>
-                            </form>
-                        </section>
-                        <section class="split contact">
-                            <section class="alt">
-                                <h3>Address</h3>
-                                <p>1234 Somewhere Road #87257<br />
-                                Nashville, TN 00000-0000</p>
-                            </section>
-                            <section>
-                                <h3>Phone</h3>
-                                <p><a href="#">(000) 000-0000</a></p>
-                            </section>
-                            <section>
-                                <h3>Email</h3>
-                                <p><a href="#">info@untitled.tld</a></p>
-                            </section>
-                            <section>
-                                <h3>Social</h3>
-                                <ul class="icons alt">
-                                    <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-                                    <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-                                    <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-                                    <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-                                </ul>
-                            </section>
-                        </section>
-                    </footer>
+    // POST data to 
+    var dataToCapitalOne = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://api.reimaginebanking.com/accounts/5c9fa4e8322fa06b677949e5/bills?key=1ec0d7166feb6612d0618480de29012f",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "ebfc4e69-bd83-42e7-ae7b-64cd005e0ff9"
+        },
+        "processData": false,
+        "data": "{\n  \"status\": \"pending\",\n  \"payee\":" + payee + ",\n  \"nickname\": \"nick\",\n  \"payment_date\":" + date + ",\n  \"recurring_date\": 1,\n \"payment_amount\":" + payment_amount + "\n}"
+    }
 
-                <!-- Copyright -->
-                    <div id="copyright">
-                        <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-                    </div>
+    $.ajax(dataToCapitalOne).done(function(response) {
+        console.log(response);
+    });
+    </script>
+</body>
 
-            </div>
-
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/browser.min.js"></script>
-            <script src="assets/js/breakpoints.min.js"></script>
-            <script src="assets/js/util.js"></script>
-            <script src="assets/js/main.js"></script>
-            <script type="text/javascript">
-
-                var calcEmissions = (units) => {
-                    return units * 1.004
-                };
-
-                var payee;
-                var date;
-                var payment_amount;
-                var id = '5c9fa4e6322fa06b677949e2'
-
-                //GET data
-                var dataFromCapitalOne = {
-                  "async": true,
-                  "crossDomain": true,
-                  "url": "http://api.reimaginebanking.com/accounts?key=1ec0d7166feb6612d0618480de29012f",
-                  "method": "GET",
-                  "headers": {
-                    "Content-Type": "application/json",
-                    "cache-control": "no-cache",
-                    "Postman-Token": "c09cf7ee-0bdc-4714-8abd-e5ce5a18a182"
-                  },
-                  "processData": false,
-                  "data": ""
-                }
-
-                $.ajax(dataFromCapitalOne).done(function (response) {
-                  console.log(response);
-                });
-
-                // POST data to 
-                var dataToCapitalOne = {
-                "async": true,
-                "crossDomain": true,
-                "url": "http://api.reimaginebanking.com/accounts/5c9fa4e8322fa06b677949e5/bills?key=1ec0d7166feb6612d0618480de29012f",
-                "method": "POST",
-                "headers": {
-                "Content-Type": "application/json",
-                "cache-control": "no-cache",
-                "Postman-Token": "ebfc4e69-bd83-42e7-ae7b-64cd005e0ff9"
-                },
-                "processData": false,
-                "data": "{\n  \"status\": \"pending\",\n  \"payee\":" + payee + ",\n  \"nickname\": \"nick\",\n  \"payment_date\":" + date + ",\n  \"recurring_date\": 1,\n \"payment_amount\":"+ payment_amount + "\n}"
-                }
-
-                $.ajax(dataToCapitalOne).done(function (response) {
-                console.log(response);
-                });
-
-            </script>
-
-    </body>
 </html>
