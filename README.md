@@ -1,8 +1,9 @@
-# pesix
-Track your carbon footprint seamlessly
+Made at LA Hacks with ❤️ by Niladri Shekhar Dutt, Souradeep Das, Sejal Mohata and Tanmay Agrawal
 
-time's are changing, and it's time to change
-# Pesix
+# Pe6ix
+Reduce your carbon footprint and earn rewards for it.
+
+---------------
 ## Inspiration
 Carbon emission is a well known threat to the environment and still *How many people try becoming more environmental friendly even after being aware of the consequences?*
 
