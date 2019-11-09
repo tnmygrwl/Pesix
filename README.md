@@ -1,6 +1,11 @@
-Made at LA Hacks with ❤️ by Niladri Shekhar Dutt, Souradeep Das, Sejal Mohata and Tanmay Agrawal
+# Pesix 
+<p align="left">
+    <a href="LICENSE" alt="License">
+        <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" /></a></p>
 
-# Pe6ix
+![Ranked](https://img.shields.io/badge/LA%20Hacks%202019-Best%20Social%20Hack-green)
+
+        
 Reduce your carbon footprint and earn rewards for it.
 
 ---------------
@@ -12,34 +17,9 @@ It allows you to easily pay your bills and track your carbon footprint while *ea
 
 ## How we built it
 
-We built a skill for Amazon Alexa using their developer console and used Amazon lambda services to deploy it and seamlessly connect it with the web server. Bills for the scheduled payments are generated using Nessie, Capitol One's API and the transaction is monitored by the platform to calculate carbon emission. We used ethereum framework to monitor the carbon emission by each individual and maintain a leaderoard which later determines the reward of the individuals. The web-app made with HTML5 and graph.js also provides analytics for every user's carbon footprint. We used node.js for backend and integration with the ethereum framework.
+We built a skill for Amazon Alexa using their developer console and used Amazon lambda services to deploy it and seamlessly connect it with the web server. Bills for the scheduled payments are generated using Nessie, Capital One's API and the transaction is monitored by the platform to calculate carbon emission. We used ethereum framework to monitor the carbon emission by each individual and maintain a leaderoard which later determines the reward of the individuals. The web-app made with HTML5 and graph.js also provides analytics for every user's carbon footprint. We used node.js for backend and integration with the ethereum framework.
 
-## Challenges we ran into
-
-Some of the challenges we ran into were:
-<ol>
-<li> Deciding on a concrete idea.</li>
-<li>Deploying it on amazon Alexa and integrating it with the frontend. </li>
-<li>Configuring Metamask with the web-app.</li>
-<li>WiFi and network issues. </li>
-</ol>
-
-## Accomplishments that we're proud of
-
-Gamifying an environmental problem to improve sustainability by incentivizing reduction of carbon emission through smart banking.
-
-## What we learned
-
-While the individual components work perfectly on their own, integrating it and *bringing* together the product as a whole is a huge challenge.
-
-## What's next for Pesix
-<ol>
-<li>Scalaing the platform to calculate the carbon emission better</li>
-<li>Providing it as B2B service.</li>
-<li>And keep on asking *"What's Next?"*</li>
-</ol>
-
-## Our Website
+## Website
 ```
 http://www.pesix.com/
 ```
@@ -49,25 +29,25 @@ http://www.pesix.com/
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Run your tests
+#### Run your tests
 ```
 npm run test
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 npm run lint
 ```
 
-### Customize configuration
+#### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
