@@ -6,22 +6,16 @@ from botocore.vendored import requests
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
-        'outputSpeech': {
-            'type': 'PlainText',
-            'text': output
-        },
+        'outputSpeech': {'type': 'PlainText', 'text': output},
         'card': {
             'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'title': f"SessionSpeechlet - {title}",
+            'content': f"SessionSpeechlet - {output}",
         },
         'reprompt': {
-            'outputSpeech': {
-                'type': 'PlainText',
-                'text': reprompt_text
-            }
+            'outputSpeech': {'type': 'PlainText', 'text': reprompt_text}
         },
-        'shouldEndSession': should_end_session
+        'shouldEndSession': should_end_session,
     }
 
 
@@ -67,8 +61,12 @@ def who_is_the_receiver(intent, session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['price']['value']
-    speech_output = "When do you want me to schedule your payment of "+ str(name) +" dollars?"
-    reprompt_text = "When do you want me to schedule your payment of "+ str(name) +" dollars?"
+    speech_output = (
+        f"When do you want me to schedule your payment of {str(name)} dollars?"
+    )
+    reprompt_text = (
+        f"When do you want me to schedule your payment of {str(name)} dollars?"
+    )
     url = "https://www.jsonstore.io/54298701bfa16f8c77653c87b9008c3f3a681c74ca82c59649efc9159f910e46"
     pay={'receiver': name}
     headers = {
@@ -86,8 +84,8 @@ def what_is_the_bet(intent,session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['date']['value']
-    speech_output = "Your payment is successfully scheduled for "+ name +" with your Capitol One credit card. Fetching your records from the Ethereum blockchain. You are on fourth position on the leaderboard. Would you like to know more?"
-    reprompt_text = "Your payment is successfully scheduled for "+ name +" with your Capitol One credit card. Fetching your records from the Ethereum blockchain. You are on fourth position on the leaderboard. Would you like to know more?"
+    speech_output = f"Your payment is successfully scheduled for {name} with your Capitol One credit card. Fetching your records from the Ethereum blockchain. You are on fourth position on the leaderboard. Would you like to know more?"
+    reprompt_text = f"Your payment is successfully scheduled for {name} with your Capitol One credit card. Fetching your records from the Ethereum blockchain. You are on fourth position on the leaderboard. Would you like to know more?"
     url="https://www.jsonstore.io/f69f67573b1097131a3d0dd3238f05c01eb95d943adc8ec173d9b903f0989419"
     pay={'receiver': name}
     headers = {
@@ -151,7 +149,7 @@ def on_intent(intent_request, session):
         return what_is_the_committDate(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
-    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
+    elif intent_name in ["AMAZON.CancelIntent", "AMAZON.StopIntent"]:
         return handle_session_end_request()
     else:
         raise ValueError("Invalid intent")
